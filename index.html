@@ -9,8 +9,7 @@
 </head>
 
 <body>
-    <nav
-        class="bg-white dark:bg-gray-900 fixed w-full h-20 z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600 flex items-center">
+    <nav class="bg-gray-900 fixed w-full h-20 z-20 top-0 start-0 border-b border-gray-600 flex items-center">
         <div class="p-4 xl:container xl:mx-auto w-full">
             <div class="flex flex-wrap items-center justify-between">
                 <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
@@ -21,76 +20,86 @@
                     <button type="button"
                         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Get
                         started</button>
-                    <button data-collapse-toggle="navbar-sticky" type="button"
-                        class="relative inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                        aria-controls="navbar-sticky" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
+                    <!-- Step 2: Button = <label> element with an <input type="checkbox"> -->
+                    <!-- You can control css by using peer-checked:* -->
+                    <!-- It is important the dropdown menu is located within the <label> element; so you can control it with peer-checked:* -->
+                    <label
+                        class="cursor-pointer z-30 relative inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+                        <input class="peer hidden" type="checkbox" id="mobile-menu" />
                         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 17 14">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M1 1h15M1 7h15M1 13h15" />
                         </svg>
-                    </button>
-                    <!-- Dropdown menu -->
-                    <!-- To start preparing the animation of the mobile menu, just get the dropdown ready in open position -->
-                    <!-- Don't worry about anything else, to make it easer we have set the height of the navigation to h-20 -->
-                    <!-- The dropdown menu is positioned fixed top-20, so right below the navigation bar -->
-                    <!-- Next what we will doo is to add here the hamburger icon from my dev.to article -->
-                    <!-- It will activate with the tailwindcss peer- modifier to show this dropdown menu -->
-                    <!-- Because of this peer- modifier we need to position this dropdown menu inside the <label> element of the hamburger button, we do that in the next step ... -->
-                    <!-- Read more about that at https://tailwindcss.com/docs/hover-focus-and-other-states#styling-based-on-sibling-state -->
-                    <div
-                        class="fixed w-full z-10 left-0 top-20 font-normal divide-y shadow bg-gray-700 divide-gray-600">
+                        <!-- Step 1: Dropdown menu -->
+                        <!-- To start preparing the animation of the mobile menu, just get the dropdown ready in open position -->
+                        <!-- Don't worry about anything else, to make it easer we have set the height of the navigation to h-20 -->
+                        <!-- The dropdown menu is positioned fixed top-20, so right below the navigation bar -->
+                        <!-- Next what we will doo is to add here the hamburger icon from my dev.to article -->
+                        <!-- It will activate with the tailwindcss peer- modifier to show this dropdown menu -->
+                        <!-- Because of this peer- modifier we need to position this dropdown menu inside the <label> element of the hamburger button, we do that in the next step ... -->
+                        <!-- Read more about that at https://tailwindcss.com/docs/hover-focus-and-other-states#styling-based-on-sibling-state -->
 
-                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownLargeButton">
-                            <li>
-                                <a href="#"
-                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                            </li>
-                            <li aria-labelledby="dropdownNavbarLink">
-                                <button id="doubleDropdownButton" data-dropdown-toggle="doubleDropdown"
-                                    data-dropdown-placement="right-start" type="button"
-                                    class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dropdown<svg
-                                        class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 10 6">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="m1 1 4 4 4-4" />
-                                    </svg></button>
-                                <div id="doubleDropdown"
-                                    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
-                                        aria-labelledby="doubleDropdownButton">
-                                        <li>
-                                            <a href="#"
-                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Overview</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">My
-                                                downloads</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Billing</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Rewards</a>
-                                        </li>
-                                    </ul>
+                        <!-- Step 2: added here an extra container to avoid the dropdown sliding over the menu -->
+                        <!-- Move the dropdown up with -translate-y-full and add pper-checked:translate-y-0 -->
+                        <!-- Since peer-* works only with siblings, we need to use here peer-checked:*: -->
+                        <!-- See for more information: https://tailwindcss.com/docs/hover-focus-and-other-states#styling-direct-children -->
+                        <div class="peer-checked:*:translate-y-0 fixed w-full left-0 top-20 z-0 h-dvh overflow-hidden">
+                            <div
+                                class="-translate-y-full transition-all duration-300 ease-in-out font-normal divide-y shadow bg-gray-700 divide-gray-600">
+
+                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                                    aria-labelledby="dropdownLargeButton">
+                                    <li>
+                                        <a href="#"
+                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                                    </li>
+                                    <li aria-labelledby="dropdownNavbarLink">
+                                        <button id="doubleDropdownButton" data-dropdown-toggle="doubleDropdown"
+                                            data-dropdown-placement="right-start" type="button"
+                                            class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dropdown<svg
+                                                class="w-2.5 h-2.5 ms-2.5" aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                                <path stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+                                            </svg></button>
+                                        <div id="doubleDropdown"
+                                            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                                                aria-labelledby="doubleDropdownButton">
+                                                <li>
+                                                    <a href="#"
+                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Overview</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"
+                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">My
+                                                        downloads</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"
+                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Billing</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"
+                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Rewards</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                                    </li>
+                                </ul>
+                                <div class="py-1">
+                                    <a href="#"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
+                                        out</a>
                                 </div>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                            </li>
-                        </ul>
-                        <div class="py-1">
-                            <a href="#"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
-                                out</a>
+                            </div>
                         </div>
-                    </div>
+                    </label>
                 </div>
 
                 <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
