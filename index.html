@@ -23,11 +23,11 @@
                     <!-- Step 2: Button = <label> element with an <input type="checkbox"> -->
                     <!-- You can control css by using peer-checked:* -->
                     <!-- It is important the dropdown menu is located within the <label> element; so you can control it with peer-checked:* -->
-                    <!-- STAN / I added peer-checked/menu into label-->
-                        <label 
-                        class="peer-checked/menu cursor-pointer z-30 relative inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
-                    <!-- STAN / I added peer hidden peer/menu into input-->
-                        <input class="peer hidden peer/menu" type="checkbox" id="mobile-menu" />
+                    <!-- STAN / I added peer-checked/menu into label | SEPPE / I think it's not needed here -->
+                    <label
+                        class="cursor-pointer z-30 relative inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+                        <!-- STAN / I added peer hidden peer/menu into input | SEPPE / peer/menu is not needed, we just use peer here -->
+                        <input class="peer hidden" type="checkbox" id="mobile-menu" />
                         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 17 14">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -47,10 +47,13 @@
                         <!-- Since peer-* works only with siblings, we need to use here peer-checked:*: -->
                         <!-- See for more information: https://tailwindcss.com/docs/hover-focus-and-other-states#styling-direct-children -->
                         <!-- STAN / I added hidden peer-checked/menu:block into div class-->
+                        <!-- SEPPE / changed peer-checked/menu:block to peer-checked:block -->
+                        <!-- SEPPE / for some reading animations don't work anymore if this container has been hidden, move it out of the screen on x axis and we get at least the downward movement back -->
+                        <!-- SEPPE / animation at the end is still missing... or does it feel complete like this? -->
                         <div
-                            class="peer-checked:*:translate-y-0 hidden peer-checked/menu:block fixed w-full left-0 top-20 z-10 bg-white overflow-hidden">
+                            class="-translate-x-full peer-checked:translate-x-0 peer-checked:*:translate-y-0 fixed w-full left-0 top-20 z-10 overflow-hidden">
                             <div
-                                class="-translate-y-full relative transition-all duration-300 ease-in-out font-normal divide-y shadow bg-gray-700 divide-gray-600">
+                                class="-translate-y-full relative transition-transform delay-100 duration-500 ease-in-out font-normal divide-y shadow bg-gray-700 divide-gray-600">
 
                                 <ul class="py-2 block  text-sm text-gray-700 dark:text-gray-200"
                                     aria-labelledby="dropdownLargeButton">
@@ -58,7 +61,7 @@
                                         <a href="#"
                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Home</a>
                                     </li>
-                                    
+
                                     <li>
                                         <a href="#"
                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">About</a>
@@ -74,8 +77,9 @@
                                 </ul>
                                 <div class="py-1">
                                     <a href="#"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Get started
-                                        </a>
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Get
+                                        started
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -107,40 +111,67 @@
             </div>
         </div>
     </nav>
-<div class="mx-auto">
-    <section class="bg-white  dark:bg-gray-900">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
-            <div class="max-w-screen-md">
-                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Let's find more that brings us together.</h2>
-                <p class="mb-8 font-light text-gray-500 sm:text-xl dark:text-gray-400">Flowbite helps you connect with friends, family and communities of people who share your interests. Connecting with your friends and family as well as discovering new ones is easy with features like Groups, Watch and Marketplace.</p>
-                <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
-                    <a href="#" class="inline-flex items-center justify-center px-4 py-2.5 text-base font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                        Get started
-                    </a>
-                    <a href="#" class="inline-flex items-center justify-center px-4 py-2.5 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
-                        <svg class="mr-2 -ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path></svg>
-                        View more
-                    </a>  
+    <!-- SEPPE / added a gap element here just for esthetics :-) -->
+    <div class="h-20">&nbsp;</div>
+    <div class="mx-auto">
+        <section class="bg-white  dark:bg-gray-900">
+            <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+                <div class="max-w-screen-md">
+                    <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Let's find
+                        more that brings us together.</h2>
+                    <p class="mb-8 font-light text-gray-500 sm:text-xl dark:text-gray-400">Flowbite helps you connect
+                        with friends, family and communities of people who share your interests. Connecting with your
+                        friends and family as well as discovering new ones is easy with features like Groups, Watch and
+                        Marketplace.</p>
+                    <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
+                        <a href="#"
+                            class="inline-flex items-center justify-center px-4 py-2.5 text-base font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                            Get started
+                        </a>
+                        <a href="#"
+                            class="inline-flex items-center justify-center px-4 py-2.5 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+                            <svg class="mr-2 -ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z">
+                                </path>
+                            </svg>
+                            View more
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="bg-white dark:bg-gray-900">
-        <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
-            <img class="w-full dark:hidden" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg" alt="dashboard image">
-            <img class="w-full hidden dark:block" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup-dark.svg" alt="dashboard image">
-            <div class="mt-4 md:mt-0">
-                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Let's create more tools and ideas that brings us together.</h2>
-                <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">Flowbite helps you connect with friends and communities of people who share your interests. Connecting with your friends and family as well as discovering new ones is easy with features like Groups.</p>
-                <a href="#" class="inline-flex items-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900">
-                    Get started
-                    <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                </a>
+        <section class="bg-white dark:bg-gray-900">
+            <div
+                class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
+                <img class="w-full dark:hidden"
+                    src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg"
+                    alt="dashboard image">
+                <img class="w-full hidden dark:block"
+                    src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup-dark.svg"
+                    alt="dashboard image">
+                <div class="mt-4 md:mt-0">
+                    <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Let's create
+                        more tools and ideas that brings us together.</h2>
+                    <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">Flowbite helps you connect
+                        with friends and communities of people who share your interests. Connecting with your friends
+                        and family as well as discovering new ones is easy with features like Groups.</p>
+                    <a href="#"
+                        class="inline-flex items-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900">
+                        Get started
+                        <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>    
-</div>
+        </section>
+    </div>
 
 </body>
 
