@@ -51,8 +51,11 @@
                         <!-- SEPPE / for some reading animations don't work anymore if this container has been hidden, move it out of the screen on x axis and we get at least the downward movement back -->
                         <!-- SEPPE / animation at the end is still missing... or does it feel complete like this? -->
                         <!-- STAN / I just removed -translate-x-full-->
+                        <!-- STAN Added 'pointer-events-none' class for the mobile menu to close. This class will ignore being on the top of the element and touch-->
+                        <!-- STAN Added 'peer-checked:pointer-events-auto' class when mobile menu opens, so this will enable to be on the top of the content and touch -->
+                        <!-- STAN Documentation: https://tailwindcss.com/docs/pointer-events -->
                         <div
-                            class="peer-checked:translate-x-0 peer-checked:*:translate-y-0 fixed w-full left-0 top-20 z-10 overflow-hidden">
+                            class="peer-checked:translate-x-0 peer-checked:*:translate-y-0 fixed w-full left-0 top-20 z-10 overflow-hidden pointer-events-none peer-checked:pointer-events-auto">
                             <div
                                 class="-translate-y-full relative transition-transform delay-100 duration-500 ease-in-out font-normal divide-y shadow bg-gray-700 divide-gray-600">
 
